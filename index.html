@@ -1,0 +1,697 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>АшотЕда — Очэнь вкусныыы еди</title>
+
+<style>
+:root {
+    --bg: #100805;
+    --card: #24110c;
+    --red: #c51f18;
+    --red-light: #ed4930;
+    --text: #ffe1ce;
+    --muted: #d2b8aa;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(ellipse at 10% 15%, #45190f 0, transparent 25%),
+        radial-gradient(ellipse at 90% 35%, #3b160e 0, transparent 25%),
+        radial-gradient(ellipse at 50% 80%, #35130c 0, transparent 30%),
+        #100805;
+}
+
+/* ШАПКА */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: #100805ee;
+    border-bottom: 1px solid #54251b;
+    padding: 18px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: var(--red-light);
+}
+
+.logo span {
+    font-size: 30px;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: var(--text);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--red-light);
+}
+
+.cart {
+    background: var(--red);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 18px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+/* ГЛАВНЫЙ ЭКРАН */
+
+.hero {
+    min-height: 420px;
+    padding: 50px 7%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 30px;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 6vw, 75px);
+    line-height: 1;
+    margin-bottom: 20px;
+    font-weight: 900;
+}
+
+.hero h1 em {
+    color: var(--red-light);
+    font-style: normal;
+}
+
+.hero p {
+    font-size: 20px;
+    color: var(--muted);
+    margin-bottom: 25px;
+}
+
+.hero img {
+    width: 100%;
+    height: 330px;
+    object-fit: cover;
+    border-radius: 25px;
+    box-shadow: 0 0 50px #7a241b55;
+    transform: rotate(2deg);
+}
+
+.cta {
+    display: inline-block;
+    background: var(--red);
+    color: white;
+    text-decoration: none;
+    padding: 15px 25px;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.cta:hover {
+    background: var(--red-light);
+    transform: scale(1.05);
+}
+
+/* МЕНЮ */
+
+.menu {
+    padding: 35px 5% 55px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 150px;
+    height: 3px;
+    background: var(--red);
+    margin: 12px auto;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.card {
+    background: linear-gradient(145deg, #2a130e, #180b08);
+    border: 1px solid #54251b;
+    border-radius: 18px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: var(--red-light);
+    box-shadow: 0 12px 25px #0005;
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.card h3 {
+    font-size: 19px;
+    margin-bottom: 8px;
+}
+
+.card p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.5;
+    min-height: 65px;
+}
+
+.card-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.price {
+    font-weight: bold;
+    font-size: 19px;
+}
+
+.add {
+    background: var(--red);
+    color: white;
+    border: none;
+    padding: 10px 13px;
+    border-radius: 22px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.add:hover {
+    background: var(--red-light);
+}
+
+/* ПРЕИМУЩЕСТВА */
+
+.perks {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    padding: 40px 5%;
+    background: #1a0b07aa;
+}
+
+.perk {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: bold;
+}
+
+.perk b {
+    font-size: 30px;
+    color: #ff643d;
+}
+
+/* НАЧАЛЬНИК */
+
+.boss {
+    text-align: center;
+    padding: 40px 5% 0;
+}
+
+.boss h2 {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.boss p {
+    color: var(--muted);
+    font-size: 18px;
+}
+
+.boss img {
+    width: min(420px, 90%);
+    height: 300px;
+    object-fit: cover;
+    object-position: center 35%;
+    border-radius: 25px 25px 0 0;
+    display: block;
+    margin: 20px auto 0;
+}
+
+/* ПОДВАЛ */
+
+footer {
+    border-top: 1px solid #54251b;
+    padding: 22px 5%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    color: #b99d8e;
+    font-size: 13px;
+}
+
+/* АДАПТАЦИЯ */
+
+@media (max-width: 900px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero img {
+        max-width: 600px;
+        margin: auto;
+    }
+}
+
+@media (max-width: 560px) {
+    header {
+        flex-wrap: wrap;
+    }
+
+    nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card img {
+        height: 220px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ШАПКА -->
+
+<header>
+    <div class="logo">
+        <span>🥩</span> АшотЕда
+    </div>
+
+    <nav>
+        <a href="#menu">Меню</a>
+        <a href="#delivery">Доставка</a>
+        <a href="#boss">О нас</a>
+    </nav>
+
+    <button class="cart" id="cart">
+        🛒 Корзина (<span id="count">0</span>)
+    </button>
+</header>
+
+<!-- ГЛАВНЫЙ ЭКРАН -->
+
+<section class="hero">
+
+    <div>
+        <h1>
+            Очэнь вкусныыы<br>
+            <em>еди от ашоти</em>
+        </h1>
+
+        <p>
+            Мясо. Только мясо. И ещё немножко мяса.
+        </p>
+
+        <a href="#menu" class="cta">
+            Заказать сейчас →
+        </a>
+    </div>
+
+    <img
+        src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=85"
+        alt="Аппетитное мясо на гриле"
+    >
+
+</section>
+
+<!-- МЕНЮ -->
+
+<section class="menu" id="menu">
+
+    <h2 class="section-title">Наше меню</h2>
+
+    <div class="grid">
+
+        <!-- БЛЮДО 1 -->
+
+        <article class="card">
+            <img
+                src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=700&q=80"
+                alt="Стейк"
+            >
+
+            <div class="card-body">
+                <h3>Стейк Ашота</h3>
+
+                <p>
+                    Сочный кусок мяса, который заставит
+                    вас плакать от счастья.
+                    Лук — по желанию.
+                </p>
+
+                <div class="card-bottom">
+                    <span class="price">4990 ₸</span>
+                    <button class="add">В корзину</button>
+                </div>
+            </div>
+        </article>
+
+        <!-- БЛЮДО 2 -->
+
+        <article class="card">
+            <img
+                src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=700&q=80"
+                alt="Жареные рёбрышки"
+            >
+
+            <div class="card-body">
+                <h3>Рёбрышки мечты</h3>
+
+                <p>
+                    Рёбрышки, которые мечтают
+                    быть съеденными.
+                    Не откладывайте их судьбу!
+                </p>
+
+                <div class="card-bottom">
+                    <span class="price">4590 ₸</span>
+                    <button class="add">В корзину</button>
+                </div>
+            </div>
+        </article>
+
+        <!-- БЛЮДО 3 -->
+
+        <article class="card">
+            <img
+                src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=700&q=80"
+                alt="Шашлык"
+            >
+
+            <div class="card-body">
+                <h3>Шашлык от Ашота</h3>
+
+                <p>
+                    Классика. Мясо на углях.
+                    Дымок такой, что соседи
+                    уже в пути.
+                </p>
+
+                <div class="card-bottom">
+                    <span class="price">3990 ₸</span>
+                    <button class="add">В корзину</button>
+                </div>
+            </div>
+        </article>
+
+        <!-- БЛЮДО 4 -->
+
+        <article class="card">
+            <img
+                src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+                alt="Мясной бургер"
+            >
+
+            <div class="card-body">
+                <h3>Бургер мясной</h3>
+
+                <p>
+                    Булка, где 90% — мясо,
+                    а остальные 10% —
+                    повод взять второй.
+                </p>
+
+                <div class="card-bottom">
+                    <span class="price">3790 ₸</span>
+                    <button class="add">В корзину</button>
+                </div>
+            </div>
+        </article>
+
+        <!-- БЛЮДО 5 -->
+
+        <article class="card">
+            <img
+                src="https://images.unsplash.com/photo-1581299894007-aaa50297cf16?auto=format&fit=crop&w=700&q=80"
+                alt="Пельмени"
+            >
+
+            <div class="card-body">
+                <h3>Пельмени мясные</h3>
+
+                <p>
+                    Маленькие мясные шарики
+                    счастья. Бабушка одобряет,
+                    Ашот проверил.
+                </p>
+
+                <div class="card-bottom">
+                    <span class="price">2990 ₸</span>
+                    <button class="add">В корзину</button>
+                </div>
+            </div>
+        </article>
+
+        <!-- БЛЮДО 6 -->
+
+        <article class="card">
+            <img
+                src="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=700&q=80"
+                alt="Плов с мясом"
+            >
+
+            <div class="card-body">
+                <h3>Плов «Мясной вулкан»</h3>
+
+                <p>
+                    Рис, специи и столько мяса,
+                    что рис пришёл просто
+                    за компанию.
+                </p>
+
+                <div class="card-bottom">
+                    <span class="price">3490 ₸</span>
+                    <button class="add">В корзину</button>
+                </div>
+            </div>
+        </article>
+
+        <!-- БЛЮДО 7 -->
+
+        <article class="card">
+            <img
+                src="https://images.unsplash.com/photo-1529006557810-274b9b2fc783?auto=format&fit=crop&w=700&q=80"
+                alt="Шаурма"
+            >
+
+            <div class="card-body">
+                <h3>Шаурма мясная</h3>
+
+                <p>
+                    Мясо в лаваше.
+                    Удобно держать,
+                    сложно делиться.
+                </p>
+
+                <div class="card-bottom">
+                    <span class="price">3290 ₸</span>
+                    <button class="add">В корзину</button>
+                </div>
+            </div>
+        </article>
+
+        <!-- БЛЮДО 8 -->
+
+        <article class="card">
+            <img
+                src="https://images.unsplash.com/photo-1529042410759-befb1204b468?auto=format&fit=crop&w=700&q=80"
+                alt="Мясные котлеты"
+            >
+
+            <div class="card-body">
+                <h3>Котлеты от Ашота</h3>
+
+                <p>
+                    Котлеты, которые любят
+                    даже те, кто говорит:
+                    «Я сегодня только салат».
+                </p>
+
+                <div class="card-bottom">
+                    <span class="price">2790 ₸</span>
+                    <button class="add">В корзину</button>
+                </div>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<!-- ПРЕИМУЩЕСТВА -->
+
+<section class="perks" id="delivery">
+
+    <div class="perk">
+        <b>🛵</b>
+        <span>Быстрая доставка<br>от 30 минут</span>
+    </div>
+
+    <div class="perk">
+        <b>🏆</b>
+        <span>Только мясо!</span>
+    </div>
+
+    <div class="perk">
+        <b>☺</b>
+        <span>Гарантия вкуса<br>(или Ашот вернёт деньги)</span>
+    </div>
+
+    <div class="perk">
+        <b>★</b>
+        <span>Любовь Ашота</span>
+    </div>
+
+</section>
+
+<!-- НАШ НАЧАЛЬНИК -->
+
+<section class="boss" id="boss">
+
+    <h2 class="section-title">Наш начальник</h2>
+
+    <p>
+        Это Ашот. Он одобряет вашу еду.
+        И ваш выбор.
+    </p>
+
+    <img
+        src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=700&q=85"
+        alt="Начальник Ашот"
+    >
+
+</section>
+
+<!-- ПОДВАЛ -->
+
+<footer>
+    <span>
+        © 2026 АшотЕда. Все права на мясо защищены.
+    </span>
+
+    <span>
+        Сделано с мясом и любовью ❤️
+    </span>
+</footer>
+
+<!-- КОРЗИНА -->
+
+<script>
+let cartCount = 0;
+
+const count = document.getElementById("count");
+const cart = document.getElementById("cart");
+
+const buttons = document.querySelectorAll(".add");
+
+buttons.forEach(function(button) {
+
+    button.addEventListener("click", function() {
+
+        cartCount++;
+
+        count.textContent = cartCount;
+
+        button.textContent = "Добавлено ✓";
+
+        setTimeout(function() {
+            button.textContent = "В корзину";
+        }, 900);
+
+    });
+
+});
+
+cart.addEventListener("click", function() {
+
+    if (cartCount > 0) {
+
+        alert(
+            "Ашот записал " +
+            cartCount +
+            " блюд(а)! Спасибо за заказ!"
+        );
+
+    } else {
+
+        alert(
+            "Корзина пока пустая. Ашот ждёт ваш выбор!"
+        );
+
+    }
+
+});
+</script>
+
+</body>
+</html>
